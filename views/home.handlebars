@@ -1,0 +1,60 @@
+<div>
+    {{!-- <h3>Sample Post Request Form Using Body to Send Data</h3>
+    <h3>Use postman or other method to send URL Post Request</h3>
+    <form action="/" method="POST">
+    <label for="firstName">First name:</label><br>
+    <input type="text" id="firstName" name="firstName" value="John"><br>
+    <label for="lastName">Last name:</label><br>
+    <input type="text" id="lastName" name="lastName" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+</form> --}}
+    
+    {{#if request_type}}
+    <h1>{{request_type}} request received</h1>
+    {{else}}
+    <h1>No Get or Post Request have been received yet</h1>
+    <br>
+    <h2>Make a Get or Post Request for data to show</h2>
+    {{/if}}
+    {{#if items}}
+    <table class="table">
+            <caption>{{request_type}} response values from URL query:</caption>
+            <thead>
+                <tr>
+                    <th>Keys</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <th>{{this.name}}</td>
+                    <td>{{this.value}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    
+    {{/if}}
+    <br>
+    {{#if items2}}
+        <table class="table">
+            <caption>{{request_type}} response values from Body:</caption>
+            <thead>
+                <tr>
+                    <th>Keys</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items2}}
+                <tr>
+                    <th>{{this.name}}</td>
+                    <td>{{this.value}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{/if}}
+</div>
